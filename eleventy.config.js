@@ -4,12 +4,20 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("covers");
 
-  // Your own cover image: covers/<book-file-name>.jpg (or .png / .webp)
+  // Your own cover image in the covers folder, named like the book's file.
+  // Matching is forgiving: "The Devotion of Suspect X.JPG" works for
+  // the-devotion-of-suspect-x.md, and a reread uses the original book's image.
+  const simplify = (name) =>
+    name.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   eleventyConfig.addFilter("localCover", (slug) => {
-    for (const ext of ["jpg", "jpeg", "png", "webp"]) {
-      if (fs.existsSync(`covers/${slug}.${ext}`)) return `/covers/${slug}.${ext}`;
+    if (!fs.existsSync("covers")) return "";
+    const images = {};
+    for (const file of fs.readdirSync("covers")) {
+      const m = file.match(/^(.*)\.(jpe?g|png|webp|gif|avif)$/i);
+      if (m) images[simplify(m[1])] = file;
     }
-    return "";
+    const file = images[simplify(slug)] || images[simplify(slug.replace(/-reread.*$/, ""))];
+    return file ? "/covers/" + encodeURIComponent(file) : "";
   });
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("TEMPLATE.md");
