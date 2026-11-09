@@ -32,3 +32,14 @@ Add any of these to the top section of a book's file:
 - `precision: month` shows "February 2026" instead of a full date. `precision: year` shows just the year.
 - `dnf: true` marks a book you didn't finish. It gets a DNF label and a dimmed cover.
 - `reread: true` marks a reread. For a reread, make a second file for the book, such as `iq-reread.md`.
+
+## Add a GIF or image to a review
+
+Put this on its own line in the review, with a blank line above and below:
+
+    ![short description](/gifs/your-file-name.gif)
+
+- **Your own file:** upload it to the `gifs` folder first. Use lowercase with dashes in the name, no spaces.
+- **From GIPHY or Tenor:** use the GIF's direct link (it ends in `.gif`) instead: `![shrug](https://media.giphy.com/media/.../giphy.gif)`
+
+A review can be only a GIF, with no words.

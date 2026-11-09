@@ -1,0 +1,2 @@
+Put GIFs for your reviews in this folder.
+In a review, add one with:  ![short description](/gifs/your-file-name.gif)

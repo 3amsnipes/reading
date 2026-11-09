@@ -3,6 +3,7 @@ import fs from "node:fs";
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("covers");
+  eleventyConfig.addPassthroughCopy("gifs");
 
   // Your own cover image in the covers folder, named like the book's file.
   // Matching is forgiving: "The Devotion of Suspect X.JPG" works for
