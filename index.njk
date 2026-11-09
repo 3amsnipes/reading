@@ -7,7 +7,7 @@ wide: true
 <h2 class="year">{{ group.year }}</h2>
 <ol class="book-grid">
 {% for book in group.books %}
-  {% set coverTitle = book.data.title %}{% set coverIsbn = book.data.isbn %}
+  {% set coverTitle = book.data.title %}{% set coverIsbn = book.data.isbn %}{% set coverFile = book.page.fileSlug | localCover %}
   <li>
     {% if book | hasReview %}<a class="card" href="{{ book.url }}">{% else %}<div class="card">{% endif %}
       {% include "cover.njk" %}

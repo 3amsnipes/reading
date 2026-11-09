@@ -1,4 +1,5 @@
 <div class="cover">
   <span class="cover-fallback">{{ coverTitle }}</span>
-  {% if coverIsbn %}<img src="https://covers.openlibrary.org/b/isbn/{{ coverIsbn }}-L.jpg?default=false" alt="Cover of {{ coverTitle }}" loading="lazy" onerror="this.remove()">{% endif %}
+  {% if coverFile %}<img src="{{ coverFile }}" alt="Cover of {{ coverTitle }}" loading="lazy">
+  {% elif coverIsbn %}<img src="https://covers.openlibrary.org/b/isbn/{{ coverIsbn }}-L.jpg?default=false" alt="Cover of {{ coverTitle }}" loading="lazy" onerror="this.remove()">{% endif %}
 </div>

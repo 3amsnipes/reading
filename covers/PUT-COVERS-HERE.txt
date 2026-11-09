@@ -1,0 +1,2 @@
+Put your own cover images in this folder.
+Name each image exactly like the book file, e.g. the-maids-diary.jpg for books/the-maids-diary.md

@@ -1,5 +1,16 @@
+import fs from "node:fs";
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
+  eleventyConfig.addPassthroughCopy("covers");
+
+  // Your own cover image: covers/<book-file-name>.jpg (or .png / .webp)
+  eleventyConfig.addFilter("localCover", (slug) => {
+    for (const ext of ["jpg", "jpeg", "png", "webp"]) {
+      if (fs.existsSync(`covers/${slug}.${ext}`)) return `/covers/${slug}.${ext}`;
+    }
+    return "";
+  });
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("TEMPLATE.md");
 

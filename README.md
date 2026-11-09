@@ -16,3 +16,11 @@ Books with a written review get a link on the list. Books with only a rating sho
 ## Change the look
 
 Everything visual is in `style.css`. The colors and font are at the top.
+
+## Use your own cover image
+
+1. Save the image as a .jpg, .png or .webp, about 600px wide.
+2. Name it exactly like the book's file in `books`: `the-maids-diary.jpg` for `the-maids-diary.md`.
+3. On GitHub, open the `covers` folder → **Add file → Upload files** → drag it in → **Commit changes**.
+
+Your image replaces the Open Library cover automatically.
