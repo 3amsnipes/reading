@@ -4,4 +4,5 @@ author: "Freida McFadden"
 series: "The Housemaid, #2"
 date: 2024-05-23
 rating: 4
+isbn: "9781837901319"
 ---

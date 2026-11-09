@@ -4,4 +4,5 @@ subtitle: "The Employees, Businesses, and Relationships That All of Us Have to G
 author: "Henry Cloud"
 date: 2026-01-15
 rating: 5
+isbn: "9780061777127"
 ---

@@ -4,4 +4,5 @@ subtitle: "The Story of the First Six African Americans Who Escaped Slavery and 
 author: "Shomari Wills"
 date: 2026-02-15
 rating: 4
+isbn: "9780062437549"
 ---

@@ -1,13 +1,20 @@
 ---
 layout: base.njk
 ---
+{% set coverTitle = title %}{% set coverIsbn = isbn %}
 <article class="book">
-  <h1>{{ title }}</h1>
-  {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
-  <p class="meta">
-    {{ author }}{% if series %} · {{ series }}{% endif %}<br>
-    Read {{ page.date | longDate }}{% if rating %} · <span class="stars">{{ rating | stars | safe }}</span>{% endif %}
-  </p>
+  <header class="book-head">
+    {% include "cover.njk" %}
+    <div>
+      <h1>{{ title }}</h1>
+      {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
+      <p class="meta">
+        {{ author }}{% if series %}<br>{{ series }}{% endif %}<br>
+        Read {{ page.date | longDate }}
+      </p>
+      {% if rating %}<p class="stars">{{ rating | stars | safe }}</p>{% endif %}
+    </div>
+  </header>
   <div class="review">
     {{ content | safe }}
   </div>

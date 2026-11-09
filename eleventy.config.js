@@ -8,6 +8,17 @@ export default function (eleventyConfig) {
     api.getFilteredByGlob("books/*.md").sort((a, b) => b.date - a.date)
   );
 
+  // Group books into [{ year, books }], newest year first
+  eleventyConfig.addFilter("byYear", (books) => {
+    const groups = [];
+    for (const b of books) {
+      const y = new Date(b.date).getUTCFullYear();
+      if (!groups.length || groups.at(-1).year !== y) groups.push({ year: y, books: [] });
+      groups.at(-1).books.push(b);
+    }
+    return groups;
+  });
+
   // 2026-03-11
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
   // March 11, 2026
