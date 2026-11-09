@@ -1,0 +1,53 @@
+/* ===== Change these to restyle the whole site ===== */
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #9a9a9a;
+  --accent: #7cc6f2;   /* light blue — swap in the exact hex from 3amsnipes.com */
+  --font: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+/* ================================================== */
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 2.5rem 1.25rem 5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.site-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3rem; }
+.site-name { color: var(--text); font-weight: 700; }
+.site-header nav a { color: var(--muted); }
+.site-header nav a:hover { color: var(--accent); }
+
+.page-title { font-size: 1.5rem; margin: 0 0 .25rem; }
+.intro { color: var(--muted); margin: 0 0 2.5rem; }
+
+.book-list { list-style: none; padding: 0; margin: 0; }
+.book-list li { margin-bottom: 1.6rem; }
+.book-list a, .book-list .title { display: block; font-weight: 700; }
+.book-list .title { color: var(--text); }
+.book-list .author { display: block; }
+.book-list .row { display: flex; gap: 1rem; color: var(--muted); font-size: .9em; }
+
+.stars { color: var(--accent); letter-spacing: .05em; }
+.stars .dim { color: #333; }
+.stars .half {
+  background: linear-gradient(90deg, var(--accent) 50%, #333 50%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.book h1 { font-size: 1.6rem; line-height: 1.25; margin: 0; }
+.book .subtitle { color: var(--muted); margin: .25rem 0 0; }
+.book .meta { color: var(--muted); margin: 1rem 0 2.5rem; }
+.review p { margin: 0 0 1.2em; }
+.review blockquote { margin: 0 0 1.2em; padding-left: 1rem; border-left: 2px solid var(--accent); color: var(--muted); }
+.back { margin-top: 3rem; }

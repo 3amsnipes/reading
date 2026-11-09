@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<article class="book">
+  <h1>{{ title }}</h1>
+  {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
+  <p class="meta">
+    {{ author }}{% if series %} · {{ series }}{% endif %}<br>
+    Read {{ page.date | longDate }}{% if rating %} · <span class="stars">{{ rating | stars | safe }}</span>{% endif %}
+  </p>
+  <div class="review">
+    {{ content | safe }}
+  </div>
+  <p class="back"><a href="/">← All books</a></p>
+</article>

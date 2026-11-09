@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<h1 class="page-title">Reading</h1>
+<p class="intro">{{ collections.books.length }} books, newest first.</p>
+<ol class="book-list">
+{% for book in collections.books %}
+  <li>
+    {% if book | hasReview %}<a href="{{ book.url }}">{{ book.data.title }}</a>{% else %}<span class="title">{{ book.data.title }}</span>{% endif %}
+    <span class="author">{{ book.data.author }}</span>
+    <span class="row">
+      <time datetime="{{ book.date | isoDate }}">{{ book.date | isoDate }}</time>
+      {% if book.data.rating %}<span class="stars">{{ book.data.rating | stars | safe }}</span>{% endif %}
+    </span>
+  </li>
+{% endfor %}
+</ol>

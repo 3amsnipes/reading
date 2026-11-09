@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="/">{{ site.name }}</a>
+    <nav><a href="https://www.3amsnipes.com">3amsnipes.com</a></nav>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+</html>
