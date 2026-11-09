@@ -30,7 +30,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .page-title { font-size: 1.5rem; margin: 0 0 .25rem; }
 .year { font-size: 2.25rem; line-height: 1; margin: 3.5rem 0 1.75rem; padding-bottom: .75rem; border-bottom: 1px solid #222; }
-.year:first-of-type { margin-top: 2.5rem; }
+.views { display: flex; gap: 1.5rem; margin: 1rem 0 0; }
+.views a { color: var(--muted); padding-bottom: .3rem; border-bottom: 2px solid transparent; }
+.views a:hover { color: var(--text); text-decoration: none; }
+.views a.active { color: var(--text); border-bottom-color: var(--accent); }
+.page-title + .views + .year { margin-top: 2.5rem; }
+.rating-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.rating-head .stars { font-size: 1em; letter-spacing: .08em; }
+.rating-head .count { font-size: .9rem; font-weight: 400; color: var(--muted); }
+.card .read-year { color: var(--muted); font-size: .8em; margin: 0 0 .35rem; }
 
 body.wide { max-width: 68rem; }
 
@@ -47,6 +55,13 @@ a.card .title { color: var(--accent); }
 .card .cover { margin-bottom: .85rem; }
 .card .title { font-weight: 700; line-height: 1.35; }
 .card .author { color: var(--muted); font-size: .9em; margin: .2rem 0 .35rem; }
+
+.row { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; min-height: 1.5rem; }
+.tag {
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em; line-height: 1;
+  color: var(--accent); border: 1px solid var(--accent); border-radius: 2px; padding: .3rem .45rem .25rem;
+}
+.is-dnf .cover { opacity: .4; }
 
 /* Covers */
 .cover {
@@ -67,7 +82,7 @@ a.card .title { color: var(--accent); }
 }
 
 .book-head { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: end; margin-bottom: 2.5rem; }
-.book-head .stars { margin: 0; }
+.book-head .row { margin: 0; }
 .book h1 { font-size: 1.6rem; line-height: 1.25; margin: 0; }
 .book .subtitle { color: var(--muted); margin: .25rem 0 0; }
 .book .meta { color: var(--muted); margin: 1rem 0 .75rem; }

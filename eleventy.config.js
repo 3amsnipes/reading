@@ -30,12 +30,36 @@ export default function (eleventyConfig) {
     return groups;
   });
 
+  // Group books by star rating: [{ stars, books }], 5 down to 1.
+  // No rating (DNF / unrated) goes with 1 star; 3.5 goes with 3.
+  // A reread book appears once (its most recent read).
+  eleventyConfig.addFilter("byRating", (books) => {
+    const seen = new Set();
+    const groups = {};
+    for (const b of books) {
+      const key = (b.data.title + "|" + b.data.author).toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const stars = Math.max(1, Math.floor(Number(b.data.rating) || 0));
+      (groups[stars] ||= []).push(b);
+    }
+    return [5, 4, 3, 2, 1].filter((n) => groups[n]).map((n) => ({ stars: n, books: groups[n] }));
+  });
+  eleventyConfig.addFilter("year", (d) => new Date(d).getUTCFullYear());
+
   // 2026-03-11
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
   // March 11, 2026
   eleventyConfig.addFilter("longDate", (d) =>
     new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
   );
+  // Read date, as precise as you know it: full date, month ("month") or year ("year")
+  eleventyConfig.addFilter("readDate", (d, precision) => {
+    const opts = { timeZone: "UTC", year: "numeric" };
+    if (precision !== "year") opts.month = "long";
+    if (!precision) opts.day = "numeric";
+    return new Date(d).toLocaleDateString("en-US", opts);
+  });
   // 3.5 -> three and a half stars
   eleventyConfig.addFilter("stars", (r) => {
     r = Number(r) || 0;

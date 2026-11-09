@@ -24,3 +24,11 @@ Everything visual is in `style.css`. The colors and font are at the top.
 3. On GitHub, open the `covers` folder → **Add file → Upload files** → drag it in → **Commit changes**.
 
 Your image replaces the Open Library cover automatically.
+
+## Optional lines for a book
+
+Add any of these to the top section of a book's file:
+
+- `precision: month` shows "February 2026" instead of a full date. `precision: year` shows just the year.
+- `dnf: true` marks a book you didn't finish. It gets a DNF label and a dimmed cover.
+- `reread: true` marks a reread. For a reread, make a second file for the book, such as `iq-reread.md`.

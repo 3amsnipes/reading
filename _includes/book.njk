@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 {% set coverTitle = title %}{% set coverIsbn = isbn %}{% set coverFile = page.fileSlug | localCover %}
-<article class="book">
+<article class="book{% if dnf %} is-dnf{% endif %}">
   <header class="book-head">
     {% include "cover.njk" %}
     <div>
@@ -10,9 +10,13 @@ layout: base.njk
       {% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
       <p class="meta">
         {{ author }}{% if series %}<br>{{ series }}{% endif %}<br>
-        Read {{ page.date | longDate }}
+        {% if dnf %}Did not finish{% elif reread %}Reread{% else %}Read{% endif %}{% if precision == "year" %} in{% endif %} {{ page.date | readDate(precision) }}
       </p>
-      {% if rating %}<p class="stars">{{ rating | stars | safe }}</p>{% endif %}
+      <p class="row">
+        {% if rating %}<span class="stars">{{ rating | stars | safe }}</span>{% endif %}
+        {% if dnf %}<span class="tag">DNF</span>{% endif %}
+        {% if reread %}<span class="tag">Reread</span>{% endif %}
+      </p>
     </div>
   </header>
   <div class="review">

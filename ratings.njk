@@ -1,0 +1,19 @@
+---
+layout: base.njk
+wide: true
+view: rating
+permalink: /ratings/
+title: By rating
+---
+<h1 class="page-title">Reading</h1>
+{% include "views.njk" %}
+{% set showYear = true %}
+{% for group in collections.books | byRating %}
+<h2 class="year rating-head">
+  <span class="stars">{{ "★".repeat(group.stars) }}<span class="dim">{{ "★".repeat(5 - group.stars) }}</span></span>
+  <span class="count">{{ group.books.length }} {{ "book" if group.books.length == 1 else "books" }}</span>
+</h2>
+<ol class="book-grid">
+{% for book in group.books %}{% include "card.njk" %}{% endfor %}
+</ol>
+{% endfor %}

@@ -1,0 +1,14 @@
+<li>
+  {% set coverTitle = book.data.title %}{% set coverIsbn = book.data.isbn %}{% set coverFile = book.page.fileSlug | localCover %}
+  {% if book | hasReview %}<a class="card{% if book.data.dnf %} is-dnf{% endif %}" href="{{ book.url }}">{% else %}<div class="card{% if book.data.dnf %} is-dnf{% endif %}">{% endif %}
+    {% include "cover.njk" %}
+    <span class="title">{{ book.data.title }}</span>
+    <span class="author">{{ book.data.author }}</span>
+    {% if showYear %}<span class="read-year">{{ book.date | year }}</span>{% endif %}
+    <span class="row">
+      {% if book.data.rating %}<span class="stars">{{ book.data.rating | stars | safe }}</span>{% endif %}
+      {% if book.data.dnf %}<span class="tag">DNF</span>{% endif %}
+      {% if book.data.reread %}<span class="tag">Reread</span>{% endif %}
+    </span>
+  {% if book | hasReview %}</a>{% else %}</div>{% endif %}
+</li>
