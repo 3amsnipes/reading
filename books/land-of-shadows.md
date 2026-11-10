@@ -7,3 +7,5 @@ precision: month
 rating: 3
 isbn: "9780765336378"
 ---
+
+![its alright](/gifs/i-mean-its-all-right.gif)
