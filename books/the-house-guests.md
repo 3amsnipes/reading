@@ -7,3 +7,5 @@ rating: 0
 isbn: "9781525809903"
 dnf: true
 ---
+
+![this is trash](/gifs/would-you-throw-this-trash-out.gif)
