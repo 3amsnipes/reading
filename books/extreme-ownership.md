@@ -7,3 +7,5 @@ precision: month
 rating: 3
 isbn: "9781250067050"
 ---
+
+<img width="664" height="644" alt="image" src="https://github.com/user-attachments/assets/9336249a-90a7-46d3-83a4-b2b3e6a4f002" />
