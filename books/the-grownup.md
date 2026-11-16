@@ -6,3 +6,5 @@ precision: month
 rating: 2
 isbn: "9780804188975"
 ---
+
+Bad ending. Fell flat for me and didn’t make too much sense.

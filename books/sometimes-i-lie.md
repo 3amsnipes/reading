@@ -6,3 +6,5 @@ precision: month
 rating: 3
 isbn: "9780008225353"
 ---
+
+This book was solid. Nothing too special but it was an enjoyable read.
